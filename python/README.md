@@ -12,7 +12,7 @@ There is a file in the `/data` directory of this repository named `book.json` wi
 import os
 import json
 
-with open('book.json','r') as file:
+with open('../data/book.json','r') as file:
   data = json.load(file)
 
 print(data['author'])
@@ -20,11 +20,34 @@ print(data['genre'])
 
 for d in data['genres']:
   print(d)
+
+file.close()
 ```
 
 Note that the file contains only ONE entry, so no loops are required to immediately start fetching out Key-Value pairs.
 
 In the case of the array of `genres` tags, a for-loop is useful.
+
+### Another Example
+
+Take `data.json` in the `data/` directory. How do we parse a multi-entry object within the tree?
+
+```
+import json
+
+# Opening JSON file
+f = open('../data/data.json')
+
+# returns JSON object as a dict
+data = json.load(f)
+
+# Iterate through the array and fetch name
+for i in data['employees']:
+    print(i['name'])
+
+# Closing file
+f.close()
+```
 
 
 ## Example 2 - Simple Pull and Parse JSON
