@@ -12,8 +12,20 @@ There is a file in the `/data` directory of this repository named `book.json` wi
 import os
 import json
 
+with open('book.json','r') as file:
+  data = json.load(file)
 
+print(data['author'])
+print(data['genre'])
+
+for d in data['genres']:
+  print(d)
 ```
+
+Note that the file contains only ONE entry, so no loops are required to immediately start fetching out Key-Value pairs.
+
+In the case of the array of `genres` tags, a for-loop is useful.
+
 
 ## Example 2 - Simple Pull and Parse JSON
 
